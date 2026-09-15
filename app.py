@@ -79,17 +79,20 @@ Requirements:
 
     with st.spinner("Generating content..."):
         try:
-            response = client.chat.completions.create(
-                model="model="openai/gpt-oss-20b",model="openai/gpt-oss-20b",",
-                messages=[
-                    {
-                        "role": "system",
-                        "content": "You are a helpful social media content writer.",
-                    },
-                    {"role": "user", "content": prompt},
-                ],
-                temperature=0.7,
-            )
+           response = client.chat.completions.create(
+    model="openai/gpt-oss-20b",
+    messages=[
+        {
+            "role": "system",
+            "content": "You are a helpful social media content writer.",
+        },
+        {
+            "role": "user",
+            "content": prompt,
+        },
+    ],
+    temperature=0.7,
+)
 
             result = response.choices[0].message.content
 
