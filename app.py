@@ -80,9 +80,11 @@ Requirements:
     with st.spinner("Generating content..."):
         try:
            response = client.chat.completions.create(
-    model="openai/gpt-oss-20b",
-    messages=[
-        {
+    model="gpt-4o",
+    messages=messages
+)
+
+    result = response.choices[0].message.content
             "role": "system",
             "content": "You are a helpful social media content writer.",
         },
